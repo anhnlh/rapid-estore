@@ -1,11 +1,19 @@
+import { Routes, Route } from "react-router";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Carts from "./pages/Carts";
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1>Welcome to the Rapid E-Store!</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/carts" element={<Carts />} />
+      </Routes>
     </>
   );
 }
-
-export default App;
