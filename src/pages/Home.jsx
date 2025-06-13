@@ -1,7 +1,7 @@
 import Breadcrumb from "../components/Breadcrumb";
 import Button from "../components/Button";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <div className="mt-10 w-lvh h-lvh text-left">
       <Breadcrumb />
