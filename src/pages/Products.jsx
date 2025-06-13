@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import Breadcrumb from "../components/Breadcrumb";
 
 export default function Products() {
+  // fetch and store products from the /products endpoint
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("https://api.jsoning.com/mock/public/products")
@@ -15,12 +15,11 @@ export default function Products() {
       });
   }, []);
 
+  // setting selectedProduct state for detailed view
   const [selectedProduct, setSelectedProduct] = useState(null);
-
   const handleProductClick = (product) => {
     setSelectedProduct(product);
   };
-
   const handleCloseDetailView = () => {
     setSelectedProduct(null);
   };
@@ -53,6 +52,8 @@ export default function Products() {
         >
           <div
             className="bg-sky-600 rounded-md p-5 w-1/2 relative"
+            // clicking outside of detailed view card will close the view and prevent
+            // closing if clicking inside.
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -61,9 +62,7 @@ export default function Products() {
             >
               &times;
             </button>
-            <div className="flex justify-between">
-              <h2 className="text-3xl font-light">{selectedProduct.name}</h2>
-            </div>
+            <h2 className="text-3xl font-light">{selectedProduct.name}</h2>
             <ul className="mt-3">
               <li>Price: ${selectedProduct.price}</li>
               <li>Category: {selectedProduct.category}</li>
