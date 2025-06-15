@@ -1,43 +1,21 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-/**
- * A React component that renders a form for adding a new product to a list of products.
- * Includes functionality to display and hide the form, and handle form submission.
- * Currently adds a local product to the list of products, so there is no persistence to
- * newly added products.
- *
- * @component
- * @param {Object} props - The component props.
- * @param {Array} props.products - The current list of products.
- * @param {Function} props.setProducts - A function to update the list of products.
- *
- * @returns {JSX.Element} The rendered component.
- *
- * @example
- * <AddProductForm products={products} setProducts={setProducts} />
- *
- * @description
- * The component consists of:
- * - A button to display the form.
- * - A modal containing the form for adding a new product.
- * - Form fields for product details such as name, price, category, description, stock, rating, image URL, and SKU.
- * - Cancel and Add buttons to close the form or submit the new product.
- *
- * The form submission creates a new product object and updates the product list using the `setProducts` function.
- */
 export default function AddProductForm({ products, setProducts }) {
-  let curId = 11;
+  const curIdRef = useRef(11);
   const [displayForm, setDisplayForm] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const handleAddButtonClick = () => {
     setDisplayForm(true);
   };
+
   const handleCloseAddProductForm = () => {
     setDisplayForm(false);
   };
 
   const handleFormSubmit = (formData) => {
     const newProduct = {
-      id: curId,
+      id: curIdRef.current++,
       name: formData.get("name"),
       price: formData.get("price"),
       category: formData.get("category"),
@@ -52,8 +30,13 @@ export default function AddProductForm({ products, setProducts }) {
     };
     setProducts(products.concat(newProduct));
     handleCloseAddProductForm();
-    curId += 1;
+
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
   };
+
   return (
     <>
       <button
@@ -187,6 +170,11 @@ export default function AddProductForm({ products, setProducts }) {
               </div>
             </form>
           </div>
+        </div>
+      )}
+      {showSuccessMessage && (
+        <div className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-md shadow-lg">
+          Product successfully added!
         </div>
       )}
     </>
