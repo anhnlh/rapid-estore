@@ -23,7 +23,9 @@ export default function Products() {
       <h1 className="text-4xl">Products</h1>
       <AddProductForm products={products} setProducts={setProducts} />
       <Suspense
-        fallback={<h1 className="mt-5 text-3xl font-bold">Loading...</h1>}
+        fallback={
+          <h2 className="mt-5 text-3xl font-bold text-sky-400">Loading...</h2>
+        }
       >
         <ProductCards
           products={products}
