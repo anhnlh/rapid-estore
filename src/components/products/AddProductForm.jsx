@@ -40,35 +40,35 @@ export default function AddProductForm({ products, setProducts }) {
   return (
     <>
       <button
-        className="mt-5 p-3 text-2xl bg-sky-600 rounded-md hover:bg-sky-300 duration-500 font-semibold hover:px-5 hover:cursor-pointer"
+        className="mt-5 rounded-md bg-sky-600 p-3 text-2xl font-semibold duration-500 hover:cursor-pointer hover:bg-sky-300 hover:px-5"
         onClick={handleAddButtonClick}
       >
         Add Product
       </button>
       {displayForm && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center"
+          className="fixed top-0 left-0 flex h-full w-full items-center justify-center bg-black/50"
           onClick={handleCloseAddProductForm}
         >
           <div
-            className="bg-slate-600 rounded-md p-5 w-1/2 relative"
+            className="relative w-1/2 rounded-md bg-slate-600 p-5"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-0 right-2 text-3xl hover:cursor-pointer p-1"
+              className="absolute top-0 right-2 p-1 text-3xl hover:cursor-pointer"
               onClick={handleCloseAddProductForm}
             >
               &times;
             </button>
             <h1 className="text-3xl">Add New Product</h1>
-            <form className="grid gap-1 mt-5" action={handleFormSubmit}>
+            <form className="mt-5 grid gap-1" action={handleFormSubmit}>
               <label className="font-semibold">
                 Name <span className="text-red-500">*</span>
               </label>
               <input
                 name="name"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="RTX 5090"
                 type="text"
               />
@@ -78,7 +78,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="price"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="2000"
                 type="number"
               />
@@ -88,7 +88,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="category"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="Graphics Card"
                 type="text"
               />
@@ -98,7 +98,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="description"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="A great way to increase your electricity bill!"
                 type="text"
               />
@@ -108,7 +108,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="stock"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="0"
                 type="number"
               />
@@ -118,7 +118,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="rating_value"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="5"
                 min="0"
                 max="5"
@@ -130,7 +130,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="rating_count"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="59"
                 type="number"
               />
@@ -140,7 +140,7 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="image_url"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/"
                 type="text"
               />
@@ -150,20 +150,20 @@ export default function AddProductForm({ products, setProducts }) {
               <input
                 name="sku"
                 required
-                className="outline-2 rounded-md py-0.5 px-2 mt-0.5 mb-2.5 outline-slate-300 font-normal"
+                className="mt-0.5 mb-2.5 rounded-md px-2 py-0.5 font-normal outline-2 outline-slate-300"
                 placeholder="VCG509032TFXXPB1-O"
                 type="text"
               />
-              <div className="grid grid-cols-2 gap-3 mt-5">
+              <div className="mt-5 grid grid-cols-2 gap-3">
                 <button
-                  className="py-2 bg-red-400 rounded-md hover:cursor-pointer hover:bg-red-300 duration-500"
+                  className="rounded-md bg-red-400 py-2 duration-500 hover:cursor-pointer hover:bg-red-300"
                   onClick={handleCloseAddProductForm}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="py-2 bg-sky-600 rounded-md hover:cursor-pointer hover:bg-sky-400 duration-500"
+                  className="rounded-md bg-sky-600 py-2 duration-500 hover:cursor-pointer hover:bg-sky-400"
                 >
                   Add
                 </button>
@@ -173,7 +173,7 @@ export default function AddProductForm({ products, setProducts }) {
         </div>
       )}
       {showSuccessMessage && (
-        <div className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-md shadow-lg">
+        <div className="fixed right-5 bottom-5 rounded-md bg-green-500 p-3 text-white shadow-lg">
           Product successfully added!
         </div>
       )}

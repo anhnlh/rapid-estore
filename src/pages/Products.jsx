@@ -18,12 +18,12 @@ export default function Products() {
   };
 
   return (
-    <div className={`text-left mt-10 h-lvh`}>
+    <div className="mt-10 h-lvh text-left">
       <Breadcrumb />
       <h1 className="text-4xl">Products</h1>
       <AddProductForm products={products} setProducts={setProducts} />
       <Suspense
-        fallback={<h1 className="text-3xl font-bold mt-5">Loading...</h1>}
+        fallback={<h1 className="mt-5 text-3xl font-bold">Loading...</h1>}
       >
         <ProductCards
           products={products}

@@ -4,7 +4,7 @@ export default function LinkButton({ text, route }) {
   return (
     <Link
       to={route}
-      className="p-3 text-2xl bg-sky-600 rounded-md hover:bg-sky-300 duration-500 font-semibold hover:px-5"
+      className="rounded-md bg-sky-600 p-3 text-2xl font-semibold duration-500 hover:bg-sky-300 hover:px-5"
     >
       {text}
     </Link>
