@@ -1,13 +1,15 @@
-import Button from "../components/Button";
+import Breadcrumb from "../components/layout/Breadcrumb";
+import LinkButton from "../components/utils/LinkButton";
 
 export default function Home() {
   return (
-    <>
-      <h1 className="text-6xl">Welcome to the Rapid E-Store!</h1>
-      <div className="mt-10">
-        <Button text="Products" route="/products" />
-        <Button text="Carts" route="/carts" />
+    <div className="mt-10 h-lvh text-left">
+      <Breadcrumb />
+      <h1 className="text-4xl">Home</h1>
+      <div className="mt-5 gap-5 flex">
+        <LinkButton text="Products" route="/products" />
+        <LinkButton text="Carts" route="/carts" />
       </div>
-    </>
+    </div>
   );
 }

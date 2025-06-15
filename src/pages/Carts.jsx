@@ -1,7 +1,10 @@
+import Breadcrumb from "../components/layout/Breadcrumb";
+
 export default function Carts() {
   return (
-    <>
-      <h1 className="text-6xl">Welcome to Carts!</h1>
-    </>
+    <div className="text-left mt-10 w-lvh h-lvh">
+      <Breadcrumb />
+      <h1 className="text-4xl">Carts</h1>
+    </div>
   );
 }
