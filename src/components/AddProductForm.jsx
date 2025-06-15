@@ -1,5 +1,30 @@
 import { useState } from "react";
 
+/**
+ * A React component that renders a form for adding a new product to a list of products.
+ * Includes functionality to display and hide the form, and handle form submission.
+ * Currently adds a local product to the list of products, so there is no persistence to
+ * newly added products.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.products - The current list of products.
+ * @param {Function} props.setProducts - A function to update the list of products.
+ *
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @example
+ * <AddProductForm products={products} setProducts={setProducts} />
+ *
+ * @description
+ * The component consists of:
+ * - A button to display the form.
+ * - A modal containing the form for adding a new product.
+ * - Form fields for product details such as name, price, category, description, stock, rating, image URL, and SKU.
+ * - Cancel and Add buttons to close the form or submit the new product.
+ *
+ * The form submission creates a new product object and updates the product list using the `setProducts` function.
+ */
 export default function AddProductForm({ products, setProducts }) {
   let curId = 11;
   const [displayForm, setDisplayForm] = useState(false);
@@ -32,7 +57,7 @@ export default function AddProductForm({ products, setProducts }) {
   return (
     <>
       <button
-        className="mt-5 p-3 text-2xl bg-sky-600 rounded-md hoverbg-sky-300 duration-500 font-semibold hover:px-5 hover:cursor-pointer"
+        className="mt-5 p-3 text-2xl bg-sky-600 rounded-md hover:bg-sky-300 duration-500 font-semibold hover:px-5 hover:cursor-pointer"
         onClick={handleAddButtonClick}
       >
         Add Product
