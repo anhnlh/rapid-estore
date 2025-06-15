@@ -1,5 +1,5 @@
-import Breadcrumb from "../components/Breadcrumb";
-import LinkButton from "../components/LinkButton";
+import Breadcrumb from "../components/layout/Breadcrumb";
+import LinkButton from "../components/utils/LinkButton";
 
 export default function Home() {
   return (

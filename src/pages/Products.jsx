@@ -1,9 +1,9 @@
 import { Suspense, useState, lazy } from "react";
-import Breadcrumb from "../components/Breadcrumb";
-import ProductDetailView from "../components/ProductDetailView";
-import AddProductForm from "../components/AddProductForm";
+import Breadcrumb from "../components/layout/Breadcrumb";
+import ProductDetailView from "../components/products/ProductDetailView";
+import AddProductForm from "../components/products/AddProductForm";
 
-const ProductCards = lazy(() => import("../components/ProductCards"));
+const ProductCards = lazy(() => import("../components/products/ProductCards"));
 
 export default function Products() {
   // fetch and store products from the /products endpoint
