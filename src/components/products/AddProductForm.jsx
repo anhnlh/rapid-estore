@@ -63,7 +63,7 @@ export default function AddProductForm({ setProducts }) {
           onClick={handleCloseAddProductForm}
         >
           <div
-            className="relative w-1/2 rounded-md bg-slate-600 p-5"
+            className="relative max-h-[90vh] w-3/4 overflow-y-auto rounded-md bg-slate-600 p-5"
             onClick={(e) => e.stopPropagation()}
           >
             <button

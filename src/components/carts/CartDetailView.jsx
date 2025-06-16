@@ -15,7 +15,7 @@ export default function CartDetailView({
         onClick={handleCloseDetailView}
       >
         <div
-          className="relative w-1/2 rounded-md bg-slate-600 p-5"
+          className="relative max-h-[90vh] w-3/4 overflow-y-auto rounded-md bg-slate-600 p-5"
           // clicking outside of detailed view card will close the view and prevent
           // closing if clicking inside.
           onClick={(e) => e.stopPropagation()}
