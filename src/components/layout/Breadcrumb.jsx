@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Breadcrumb() {
   return (
     <>
-      <nav className="text-sm text-gray-500 mb-4">
+      <nav className="mb-4 text-sm text-gray-500">
         {location.pathname === "/home" ? (
           <span className="text-white">Home</span>
         ) : (

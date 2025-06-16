@@ -5,23 +5,23 @@ export default function ProductDetailView({
   return (
     selectedProduct && (
       <div
-        className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center"
+        className="fixed top-0 left-0 flex h-full w-full items-center justify-center bg-black/50"
         onClick={handleCloseDetailView}
       >
         <div
-          className="bg-slate-600 rounded-md p-5 w-1/2 relative"
+          className="relative w-1/2 rounded-md bg-slate-600 p-5"
           // clicking outside of detailed view card will close the view and prevent
           // closing if clicking inside.
           onClick={(e) => e.stopPropagation()}
         >
           <button
-            className="absolute top-0 right-2 text-3xl hover:cursor-pointer p-1"
+            className="absolute top-0 right-2 p-1 text-3xl hover:cursor-pointer"
             onClick={handleCloseDetailView}
           >
             &times;
           </button>
           <h2 className="text-3xl font-light">{selectedProduct.name}</h2>
-          <ul className="mt-3">
+          <ul className="mt-3 overflow-hidden">
             <li>Price: ${selectedProduct.price}</li>
             <li>Category: {selectedProduct.category}</li>
             <li>Description: {selectedProduct.description}</li>
