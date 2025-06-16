@@ -1,20 +1,7 @@
-import { useEffect } from "react";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
-export default function ProductCards({
-  products,
-  setProducts,
-  handleProductClick,
-}) {
-  useEffect(() => {
-    fetch("https://api.jsoning.com/mock/public/products")
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(`Error occured while fetching products: ${error}`);
-      });
-  }, []);
+export default function ProductCards({ handleProductClick }) {
+  const products = useFetchProducts();
   return (
     <ul className="mt-5 grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {products.map((product) => {

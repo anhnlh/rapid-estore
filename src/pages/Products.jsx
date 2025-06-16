@@ -1,13 +1,14 @@
-import { Suspense, useState, lazy } from "react";
+import { Suspense, useState, lazy, useContext } from "react";
 import Breadcrumb from "../components/layout/Breadcrumb";
 import ProductDetailView from "../components/products/ProductDetailView";
 import AddProductForm from "../components/products/AddProductForm";
+import { ProductsContext } from "../contexts/ProductsContext";
 
 const ProductCards = lazy(() => import("../components/products/ProductCards"));
 
 export default function Products() {
   // fetch and store products from the /products endpoint
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useContext(ProductsContext);
   // setting selectedProduct state for detailed view
   const [selectedProduct, setSelectedProduct] = useState(null);
   const handleProductClick = (product) => {
@@ -21,7 +22,7 @@ export default function Products() {
     <div className="mt-10 h-lvh text-left">
       <Breadcrumb />
       <h1 className="text-4xl">Products</h1>
-      <AddProductForm products={products} setProducts={setProducts} />
+      <AddProductForm setProducts={setProducts} />
       <Suspense
         fallback={
           <h2 className="mt-5 text-3xl font-bold text-sky-400">Loading...</h2>

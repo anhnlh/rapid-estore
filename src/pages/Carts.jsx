@@ -1,9 +1,13 @@
 import { Suspense, lazy, useState } from "react";
 import Breadcrumb from "../components/layout/Breadcrumb";
+import CartDetailView from "../components/carts/CartDetailView";
 
 const CartCards = lazy(() => import("../components/carts/CartCards"));
 
 export default function Carts() {
+  // "users" and "carts" states can similarly become part of the
+  // ProductsContext too (or a separate context) if they end up
+  // being required somewhere else in the application.
   const [carts, setCarts] = useState([]);
   const [users, setUsers] = useState([]);
   const [selectedCart, setSelectedCart] = useState(null);
@@ -30,6 +34,11 @@ export default function Carts() {
           handleCartClick={handleCartClick}
         />
       </Suspense>
+      <CartDetailView
+        selectedCart={selectedCart}
+        users={users}
+        handleCloseDetailView={handleCloseDetailView}
+      />
     </div>
   );
 }

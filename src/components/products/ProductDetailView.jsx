@@ -21,7 +21,7 @@ export default function ProductDetailView({
             &times;
           </button>
           <h2 className="text-3xl font-light">{selectedProduct.name}</h2>
-          <ul className="mt-3">
+          <ul className="mt-3 overflow-hidden">
             <li>Price: ${selectedProduct.price}</li>
             <li>Category: {selectedProduct.category}</li>
             <li>Description: {selectedProduct.description}</li>

@@ -1,7 +1,19 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
-export default function AddProductForm({ products, setProducts }) {
-  const curIdRef = useRef(11);
+export default function AddProductForm({ setProducts }) {
+  const products = useFetchProducts();
+  const curIdRef = useRef(0);
+  // get the highest current id and increment 1
+  useEffect(() => {
+    if (products.length > 0) {
+      curIdRef.current =
+        products.reduce(
+          (curMax, product) => Math.max(curMax, parseInt(product.id)),
+          0,
+        ) + 1;
+    }
+  }, [products]);
   const [displayForm, setDisplayForm] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
