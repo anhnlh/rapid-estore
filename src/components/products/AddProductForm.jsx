@@ -73,7 +73,7 @@ export default function AddProductForm({ setProducts }) {
               &times;
             </button>
             <h1 className="text-3xl">Add New Product</h1>
-            <form className="mt-5 grid gap-1" onSubmit={handleFormSubmit}>
+            <form className="mt-5 grid gap-1" action={handleFormSubmit}>
               <label className="font-semibold">
                 Name <span className="text-red-500">*</span>
               </label>
